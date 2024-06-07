@@ -4,11 +4,11 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 import org.jsoup.select.Elements
+import org.w3c.dom.NodeList
+import java.util.*
 import javax.xml.xpath.XPath
 import javax.xml.xpath.XPathConstants
 import javax.xml.xpath.XPathFactory
-import org.w3c.dom.NodeList
-import java.util.*
 
 class TuketionParser {
 
@@ -150,7 +150,7 @@ class TuketionParser {
     fun renderTemplate(htmlTemplate: String, context: Map<String, String>): String {
         var rendered = htmlTemplate
         for ((key, value) in context) {
-            rendered = rendered.replace("{{${key}}}", value)
+            rendered = rendered.replace("{{$key}}", value)
         }
         return rendered
     }
